@@ -1,4 +1,4 @@
-package io.cloudbeat.cucumberexample.glue.other;
+package io.cloudbeat.cucumber.glue.other;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;

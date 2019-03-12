@@ -1,4 +1,4 @@
-package io.cloudbeat.cucumberexample;
+package io.cloudbeat.cucumber;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

@@ -1,4 +1,4 @@
-package io.cloudbeat.cucumberexample.glue.selenium;
+package io.cloudbeat.cucumber.glue.selenium;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;

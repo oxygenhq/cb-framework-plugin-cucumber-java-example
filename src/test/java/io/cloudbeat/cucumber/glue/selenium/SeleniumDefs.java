@@ -2,8 +2,10 @@ package io.cloudbeat.cucumber.glue.selenium;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import cucumber.api.java.en.Given;
@@ -11,7 +13,19 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class SeleniumDefs {
-    private final WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
+
+    @Before()
+    public void setup(Scenario scenario) throws Exception {
+        String browserName = System.getProperty("browserName");
+        if ("chrome".equalsIgnoreCase(browserName)){
+            driver = new ChromeDriver();
+        } else if ("ie".equalsIgnoreCase(browserName)) {
+            driver = new InternetExplorerDriver();
+        } else {
+            throw new Exception("Invalid browserName: " + browserName);
+        }
+    }
 
     @Given("^I am on the Google search page$")
     public void I_visit_google() {

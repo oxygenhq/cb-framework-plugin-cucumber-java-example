@@ -1,4 +1,4 @@
 .idea/
 target/
-chromedriver.exe
+*.exe
 *.iml

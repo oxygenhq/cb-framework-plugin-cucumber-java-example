@@ -22,10 +22,6 @@ Feature: Test hafaka Niyud Nihnas menaalim, Status 9074, 9075 + parametr halukat
     Then I_get_mispar_tik
     Then I_click_on_btn_enter_to_service
 
-  Scenario: page 120512 - חוצץ מבוטחים -
-    Then I_write_all_data_page_120512
-    Then I_click_on_next_button_to_all_page
-
  Scenario: page 119183 - קיט מסמכים -
     Then I_choose_document_profile_page_niyud_menaalim_119183
     Then I_click_on_next_button_to_all_page

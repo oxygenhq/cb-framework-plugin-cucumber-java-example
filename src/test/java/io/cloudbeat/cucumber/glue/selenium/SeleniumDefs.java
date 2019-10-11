@@ -5,6 +5,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,6 +23,8 @@ public class SeleniumDefs {
             driver = new ChromeDriver();
         } else if ("ie".equalsIgnoreCase(browserName)) {
             driver = new InternetExplorerDriver();
+        } else if ("firefox".equalsIgnoreCase(browserName)) {
+            driver = new FirefoxDriver();
         } else {
             throw new Exception("Invalid browserName: " + browserName);
         }

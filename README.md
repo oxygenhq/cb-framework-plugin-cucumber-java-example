@@ -1,1 +1,1 @@
-# cb-framework-plugin-cucumber-example
+## Example of Cucumber Java project with integrated CloudBeat Plugin

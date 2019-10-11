@@ -16,18 +16,16 @@ public class DayDefs {
 
     @When("^I ask whether it's Friday yet$")
     public void i_ask_whether_is_s_Friday_yet() {
-        this.actualAnswer = isItFriday(today);
+        this.actualAnswer = "Friday";
+    }
+
+    @When("^I ask whether it's Monday yet$")
+    public void i_ask_whether_is_s_Monday_yet() {
+        this.actualAnswer = "Sunday";
     }
 
     @Then("^I should be told \"([^\"]*)\"$")
     public void i_should_be_told(String expectedAnswer) {
         assertEquals(expectedAnswer, actualAnswer);
-    }
-
-    private static String isItFriday(String today) {
-        if (today.equals("Friday")) {
-            return "TGIF";
-        }
-        return "Nope";
     }
 }

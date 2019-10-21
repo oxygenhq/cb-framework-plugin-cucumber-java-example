@@ -20,6 +20,8 @@ public class SeleniumDefs {
     public void setup(Scenario scenario) throws Exception {
         String browserName = System.getProperty("browserName");
         if ("chrome".equalsIgnoreCase(browserName)){
+            String path = System.getProperty("user.dir");
+            System.setProperty("webdriver.chrome.driver", path + "\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
         } else if ("ie".equalsIgnoreCase(browserName)) {
             driver = new InternetExplorerDriver();

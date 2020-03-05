@@ -32,7 +32,7 @@ public class SeleniumDefs {
             capabilities = DesiredCapabilities.chrome();
         }
 
-        driver = new RemoteWebDriver(new URL(""), capabilities);
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
     }
 
     @Given("^I am on the Google search page$")

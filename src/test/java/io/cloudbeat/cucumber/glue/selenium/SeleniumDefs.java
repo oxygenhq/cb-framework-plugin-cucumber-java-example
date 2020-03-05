@@ -7,11 +7,15 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import java.net.URL;
 
 public class SeleniumDefs {
     private WebDriver driver;
@@ -19,17 +23,16 @@ public class SeleniumDefs {
     @Before()
     public void setup(Scenario scenario) throws Exception {
         String browserName = System.getProperty("browserName");
-        if ("chrome".equalsIgnoreCase(browserName)){
-            String path = System.getProperty("user.dir");
-            System.setProperty("webdriver.chrome.driver", path + "\\resources\\chromedriver.exe");
-            driver = new ChromeDriver();
+        DesiredCapabilities capabilities = null;
+        if("firefox".equalsIgnoreCase(browserName)){
+            capabilities = DesiredCapabilities.firefox();
         } else if ("ie".equalsIgnoreCase(browserName)) {
-            driver = new InternetExplorerDriver();
-        } else if ("firefox".equalsIgnoreCase(browserName)) {
-            driver = new FirefoxDriver();
+            capabilities = DesiredCapabilities.internetExplorer();
         } else {
-            throw new Exception("Invalid browserName: " + browserName);
+            capabilities = DesiredCapabilities.chrome();
         }
+
+        driver = new RemoteWebDriver(new URL(""), capabilities);
     }
 
     @Given("^I am on the Google search page$")

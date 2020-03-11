@@ -37,7 +37,7 @@ public class SeleniumDefs {
 
     @Given("^I am on the Google search page$")
     public void I_visit_google() {
-        driver.get("https:\\www.google.com");
+        driver.get("https://www.google.com");
     }
 
     @When("^I search for \"(.*)\"$")

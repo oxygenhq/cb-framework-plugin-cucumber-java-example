@@ -11,4 +11,4 @@ Feature: Selenium Tests
   Scenario: Selenium test failing
     Given I am on the Google search page
     When I search for "Cheese!"
-    Then the page title should start with "not cheese"
+    Then the page title should start with "bacon"
